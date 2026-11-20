@@ -66990,24 +66990,3 @@ pnpm-debug.log*
 # Sublime Text
 *.sublime-project
 *.sublime-workspace
-
-# Atom
-.atom/
-
-# NetBeans
-nbproject/private/
-
-# Eclipse
-.classpath
-.project
-.settings/
-
-# ------------------------------------------------------------
-# OS Generated Files
-# ------------------------------------------------------------
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-._*
-
