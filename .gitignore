@@ -65297,23 +65297,3 @@ coverage.xml
 .mypy_cache/
 .dmypy.json
 dmypy.json
-
-# Pyre type checker
-.pyre/
-
-# pytype
-.pytype/
-
-# Cython
-cython_debug/
-
-# ------------------------------------------------------------
-# Environment Variables & Secrets
-# ------------------------------------------------------------
-.env
-.env.*
-!.env.example
-*.key
-*.pem
-credentials.json
-secrets.json
