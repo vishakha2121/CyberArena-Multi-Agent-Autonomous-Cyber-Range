@@ -1,0 +1,498 @@
+# 🚀 CyberArena: Multi-Agent Autonomous Cyber Range
+
+> **"Where AI Attacks. AI Defends. AI Learns."**
+
+![CyberArena Banner](https://img.shields.io/badge/CyberArena-Multi--Agent%20Cyber%20Range-00ff88?style=for-the-badge&logo=shield&logoColor=black)
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![React](https://img.shields.io/badge/React-18+-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Gemini](https://img.shields.io/badge/Google-Gemini%20API-4285F4?style=for-the-badge&logo=google&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-3-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+
+---
+
+## 📖 Overview
+
+**CyberArena** is a **multi-agent autonomous cyber range** where **AI-powered Red Team agents (attackers)** and **Blue Team agents (defenders)** battle inside a simulated enterprise network.
+
+Each agent is powered by **Google Gemini API** and independently:
+- **Reasons** about the current network state
+- **Plans** its next move
+- **Executes** attacks or defenses
+- **Learns** from past actions via memory
+
+A **React live dashboard** visualizes the entire battle in real-time with network maps, event feeds, attack/defense timelines, and scoring — all powered by **WebSocket**.
+
+This project demonstrates **autonomous decision-making, adversarial AI simulation, and self-learning cybersecurity defense** in a safe, controlled environment.
+
+---
+
+## 🎯 Problem Statement
+
+Traditional cybersecurity training and penetration testing require:
+- ❌ Real infrastructure (expensive, risky)
+- ❌ Human red/blue teams (slow, costly)
+- ❌ Manual attack simulations (limited scenarios)
+
+**CyberArena solves this by:**
+- ✅ Using **AI agents** to autonomously attack and defend
+- ✅ Running in a **simulated** enterprise network (zero risk)
+- ✅ Generating **thousands of attack/defense scenarios** automatically
+- ✅ **Self-learning** agents that adapt their strategy each round
+
+---
+
+## ✨ Key Features
+
+| Feature | Description |
+|---------|-------------|
+| 🤖 **Autonomous Agents** | Red & Blue Team AI agents make independent decisions using Gemini API |
+| 🌐 **Simulated Enterprise Network** | Web servers, databases, firewalls, workstations, admin PCs |
+| ⚔️ **Real-Time Battle** | Round-based turn engine where attacks and defenses play out live |
+| 🧠 **Self-Learning Memory** | Agents remember past actions and adapt strategy over time |
+| 📊 **Live Dashboard** | React UI with network map, event feed, and scoreboard |
+| 🔴🔵 **Color-Coded Events** | Red = attacks, Blue = defenses, Yellow = alerts |
+| 🕸️ **Network Topology Map** | Interactive graph showing compromised vs. safe nodes (React Flow) |
+| 📈 **Post-Simulation Reports** | Charts, winner declaration, and analytics (Recharts) |
+| ⚡ **WebSocket Updates** | Real-time push to frontend — no polling needed |
+| 🗄️ **SQLite Persistence** | All agents, attacks, defenses, events, and scores stored |
+
+---
+
+## 🏗️ Architecture
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│                    REACT FRONTEND (Vite)                     │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────┐     │
+│  │Dashboard │ │NetworkMap│ │EventFeed │ │ScoreBoard    │     │
+│  └──────────┘ └──────────┘ └──────────┘ └──────────────┘     │
+│                          │                                    │
+│                    WebSocket + REST                           │
+└──────────────────────────┼────────────────────────────────────┘
+                           │
+┌──────────────────────────▼────────────────────────────────────┐
+│                    FASTAPI BACKEND (Python)                   │
+│  ┌────────────┐  ┌─────────────┐  ┌───────────────────────┐  │
+│  │ REST API   │  │ WebSocket   │  │ Simulation Engine     │  │
+│  └────────────┘  └─────────────┘  └───────────────────────┘  │
+│                                                               │
+│  ┌────────────┐  ┌─────────────┐  ┌───────────────────────┐  │
+│  │Red Agents  │  │Blue Agents  │  │ Network Simulator     │  │
+│  └─────┬──────┘  └──────┬──────┘  └───────────────────────┘  │
+│        │                │                                     │
+│        └────────┬───────┘                                     │
+│                 ▼                                             │
+│       ┌─────────────────────┐                                 │
+│       │  Gemini API Service │  ◄── Google Gemini (Cloud)      │
+│       └─────────────────────┘                                 │
+│                                                               │
+│       ┌─────────────────────┐                                 │
+│       │   SQLite Database   │                                 │
+│       └─────────────────────┘                                 │
+└───────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🛠️ Tech Stack
+
+### Backend
+- **Python 3.10+**
+- **FastAPI** — REST API + WebSocket
+- **SQLAlchemy** — ORM for SQLite
+- **Pydantic** — Data validation
+- **Google Generative AI (Gemini API)** — Agent intelligence
+- **Uvicorn** — ASGI server
+
+### Frontend
+- **React 18** (Vite)
+- **TailwindCSS** — Styling (dark cyber theme)
+- **React Router** — Navigation
+- **React Flow** — Network topology graph
+- **Recharts** — Analytics charts
+- **Axios** — HTTP client
+- **Framer Motion** — Animations
+- **WebSocket API** — Real-time updates
+
+### Database
+- **SQLite** — Lightweight, file-based, no setup needed
+
+### AI
+- **Google Gemini API** (`gemini-1.5-flash` or `gemini-pro`)
+
+---
+
+## 📁 Project Structure
+
+```
+multi-agent-cyber-range/
+│
+├── README.md
+├── .gitignore
+├── .env.example
+│
+├── backend/
+│   ├── requirements.txt
+│   ├── .env
+│   ├── main.py
+│   ├── config.py
+│   ├── database.py
+│   │
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── models/            # SQLAlchemy DB models
+│   │   ├── schemas/           # Pydantic request/response schemas
+│   │   ├── routers/           # FastAPI route handlers
+│   │   ├── services/          # Business logic (simulation, scoring, gemini)
+│   │   ├── agents/            # Red & Blue team agent logic
+│   │   ├── core/              # Network simulator, attack library
+│   │   └── utils/             # Helpers, logger, seed data
+│   │
+│   └── tests/                 # Pytest tests
+│
+├── frontend/
+│   ├── package.json
+│   ├── vite.config.js
+│   ├── tailwind.config.js
+│   ├── index.html
+│   │
+│   └── src/
+│       ├── main.jsx
+│       ├── App.jsx
+│       ├── api/               # Axios API clients
+│       ├── hooks/             # Custom React hooks
+│       ├── context/           # React Context (simulation, theme)
+│       ├── components/        # UI components (dashboard, network, etc.)
+│       ├── pages/             # Page-level components
+│       ├── utils/             # Formatters, constants
+│       └── assets/            # Images, icons, SVGs
+│
+├── database/
+│   ├── schema.sql
+│   ├── seed.sql
+│   └── migrations/
+│
+└── docs/
+    ├── architecture.md
+    ├── api_reference.md
+    ├── user_guide.md
+    └── screenshots/
+```
+
+---
+
+## 🚦 Getting Started
+
+### Prerequisites
+
+- **Python 3.10+** — [Download](https://www.python.org/downloads/)
+- **Node.js 18+** — [Download](https://nodejs.org/)
+- **Git** — [Download](https://git-scm.com/)
+- **Gemini API Key** — [Get Free Key](https://aistudio.google.com/app/apikey)
+
+> ⚠️ **Note:** This project runs on a CPU-only laptop. All LLM inference happens **on the cloud (Gemini API)** — no local GPU required.
+
+---
+
+### 🔧 Backend Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/vishakha2121/CyberArena-Multi-Agent-Autonomous-Cyber-Range.git
+   cd CyberArena-Multi-Agent-Autonomous-Cyber-Range
+   ```
+
+2. **Navigate to backend**
+   ```bash
+   cd backend
+   ```
+
+3. **Create virtual environment**
+   ```bash
+   python -m venv venv
+   ```
+
+4. **Activate virtual environment**
+   - **Windows:**
+     ```bash
+     venv\Scripts\activate
+     ```
+   - **Linux / Mac:**
+     ```bash
+     source venv/bin/activate
+     ```
+
+5. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+6. **Create `.env` file**
+   ```bash
+   notepad .env
+   ```
+   Add:
+   ```env
+   GEMINI_API_KEY=your_gemini_api_key_here
+   DATABASE_URL=sqlite:///./cyber_range.db
+   SECRET_KEY=your_secret_key_here
+   ```
+
+7. **Run the backend server**
+   ```bash
+   uvicorn main:app --reload --port 8000
+   ```
+
+   ✅ Backend running at: `http://localhost:8000`
+   ✅ API docs: `http://localhost:8000/docs`
+
+---
+
+### 🎨 Frontend Setup
+
+1. **Open a new terminal** and navigate to frontend
+   ```bash
+   cd frontend
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Create `.env` file**
+   ```bash
+   notepad .env
+   ```
+   Add:
+   ```env
+   VITE_API_URL=http://localhost:8000/api
+   VITE_WS_URL=ws://localhost:8000/ws
+   ```
+
+4. **Run the frontend**
+   ```bash
+   npm run dev
+   ```
+
+   ✅ Frontend running at: `http://localhost:5173`
+
+---
+
+## 🎮 How to Use
+
+1. Open `http://localhost:5173` in your browser
+2. Click **"Start Simulation"** on the dashboard
+3. Watch the battle unfold in real-time:
+   - 🔴 **Red Team** launches attacks
+   - 🔵 **Blue Team** detects and defends
+   - 📊 **Live scores** update each round
+   - 🕸️ **Network map** shows compromised nodes
+4. After simulation ends, view **Reports** for the winner and analytics
+
+---
+
+## 🔌 API Endpoints
+
+### Simulation
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/api/simulation/start` | Start a new simulation |
+| `POST` | `/api/simulation/stop` | Stop the running simulation |
+| `GET` | `/api/simulation/status` | Get current simulation status |
+
+### Agents
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/agents` | List all agents |
+| `GET` | `/api/agents/{id}` | Get agent details |
+
+### Network
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/network/nodes` | List all network nodes |
+| `GET` | `/api/network/nodes/{id}` | Get node details |
+
+### Events
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/events` | List all events |
+| `GET` | `/api/events?type=attack` | Filter by type |
+
+### Scores
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/scores` | Get live scores |
+
+### WebSocket
+| Endpoint | Description |
+|----------|-------------|
+| `ws://localhost:8000/ws/simulation` | Live simulation updates |
+
+---
+
+## 🗄️ Database Schema
+
+| Table | Purpose |
+|-------|---------|
+| `agents` | Red/Blue team agents (name, team, status, memory) |
+| `network_nodes` | Simulated nodes (servers, DBs, workstations) |
+| `vulnerabilities` | Vulnerabilities per node |
+| `attacks` | Red team attack records |
+| `defenses` | Blue team defense records |
+| `events` | All logs (attack, defense, alert, detection) |
+| `simulations` | Simulation runs (start, end, winner) |
+| `scores` | Per-round scoring |
+| `agent_memory` | Past actions per agent |
+
+---
+
+## 🧠 How Agents Work
+
+### Red Team Agent (Attacker)
+```
+1. Receive network state + vulnerability list
+2. Send prompt to Gemini:
+   "You are a red team hacker. Here's the network: ...
+    Choose the best next attack. Respond in JSON."
+3. Parse JSON response → validate with Pydantic
+4. Execute attack → update network state
+5. Log event → save to DB
+6. Store action in memory
+```
+
+### Blue Team Agent (Defender)
+```
+1. Receive alerts (attacks detected)
+2. Send prompt to Gemini:
+   "You are a defender. Alerts: ... 
+    Choose the best response. Respond in JSON."
+3. Parse JSON response → validate
+4. Execute defense (patch/block/isolate)
+5. Log event → save to DB
+6. Store action in memory
+```
+
+### Simulation Loop
+```
+For each round (1 to N):
+    Red Agent → attack
+    Blue Agent → detect + defend
+    Update scores
+    Broadcast via WebSocket
+    Wait 2-3 seconds (Gemini rate limit)
+```
+
+---
+
+## ⚙️ Configuration
+
+### `.env.example` (Backend)
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+GEMINI_MODEL=gemini-1.5-flash
+DATABASE_URL=sqlite:///./cyber_range.db
+SECRET_KEY=your_secret_key_here
+SIMULATION_ROUNDS=15
+ROUND_DELAY_SECONDS=3
+```
+
+### `.env.example` (Frontend)
+```env
+VITE_API_URL=http://localhost:8000/api
+VITE_WS_URL=ws://localhost:8000/ws
+```
+
+---
+
+## 🖼️ Screenshots
+
+### Dashboard
+![Dashboard](docs/screenshots/dashboard.png)
+
+### Network Map
+![Network Map](docs/screenshots/network-map.png)
+
+### Live Battle Log
+![Battle Log](docs/screenshots/battle-log.png)
+
+> 📸 **Screenshots add karne ke baad ye section update karna.**
+
+---
+
+## 🧪 Testing
+
+### Backend Tests
+```bash
+cd backend
+pytest
+```
+
+### Manual API Test
+```bash
+curl http://localhost:8000/api/simulation/status
+```
+
+Or open Swagger UI: `http://localhost:8000/docs`
+
+---
+
+## 🚧 Roadmap / Future Improvements
+
+- [ ] Add more attack types (ransomware, zero-day simulation)
+- [ ] Agent vs. Agent conversation (negotiation, deception)
+- [ ] Multiple simultaneous simulations
+- [ ] Export reports as PDF
+- [ ] Agent personality tuning (aggressive, stealthy, defensive)
+- [ ] Add MITRE ATT&CK framework mapping
+- [ ] Deploy to cloud (Render / Railway)
+
+---
+
+## ⚠️ Disclaimer
+
+This project is built **for educational and practice purposes only**. It simulates attacks in a **fictional, sandboxed network** — no real systems are harmed. Do not use this project to attack real infrastructure.
+
+---
+
+## 🤝 Contributing
+
+This is a personal practice project, but suggestions are welcome! Feel free to:
+- Open an issue
+- Submit a pull request
+- Share feedback
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👩‍💻 Author
+
+**Vishakha**
+- GitHub: [@vishakha2121](https://github.com/vishakha2121)
+- Project Repo: [CyberArena-Multi-Agent-Autonomous-Cyber-Range](https://github.com/vishakha2121/CyberArena-Multi-Agent-Autonomous-Cyber-Range)
+
+---
+
+## 🙏 Acknowledgements
+
+- **Google Gemini API** — for agent intelligence
+- **FastAPI** — for the blazing-fast backend
+- **React + Vite** — for the snappy frontend
+- **SQLite** — for zero-setup persistence
+- **Open-source community** — for the amazing tools
+
+---
+
+<div align="center">
+
+**⭐ If you find this project interesting, give it a star! ⭐**
+
+**Built with ❤️ and 🤖 by Vishakha**
+
+</div>
