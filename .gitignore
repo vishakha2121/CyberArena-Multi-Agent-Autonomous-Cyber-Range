@@ -63626,33 +63626,3 @@ multi-agent-cyber-range/
    ```
    Add:
    ```env
-   VITE_API_URL=http://localhost:8000/api
-   VITE_WS_URL=ws://localhost:8000/ws
-   ```
-
-4. **Run the frontend**
-   ```bash
-   npm run dev
-   ```
-
-   ✅ Frontend running at: `http://localhost:5173`
-
----
-
-## 🎮 How to Use
-
-1. Open `http://localhost:5173` in your browser
-2. Click **"Start Simulation"** on the dashboard
-3. Watch the battle unfold in real-time:
-   - 🔴 **Red Team** launches attacks
-   - 🔵 **Blue Team** detects and defends
-   - 📊 **Live scores** update each round
-   - 🕸️ **Network map** shows compromised nodes
-4. After simulation ends, view **Reports** for the winner and analytics
-
----
-
-## 🔌 API Endpoints
-
-### Simulation
-| Method | Endpoint | Description |
