@@ -62982,35 +62982,3 @@ yarn-error.log*
 pnpm-debug.log*
 *.pid
 *.seed
-*.pid.lock
-
-# ------------------------------------------------------------
-# IDE & Editors
-# ------------------------------------------------------------
-# VS Code
-.vscode/
-!.vscode/extensions.json
-*.code-workspace
-
-# JetBrains (PyCharm, WebStorm, IntelliJ)
-.idea/
-*.iml
-*.ipr
-*.iws
-
-# Vim
-*.swp
-*.swo
-*~
-.vim/
-
-# Emacs
-*~
-\#*\#
-.\#*
-
-# Sublime Text
-*.sublime-project
-*.sublime-workspace
-
-# Atom
