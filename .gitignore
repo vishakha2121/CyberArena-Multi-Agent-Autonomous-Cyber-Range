@@ -65283,17 +65283,3 @@ nosetests.xml
 coverage.xml
 *.cover
 *.py,cover
-.hypothesis/
-.tox/
-.nox/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# pyenv
-.python-version
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
